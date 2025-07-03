@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "immy.bot"
   text: ""
-  tagline: "Cloud 9 immy.bot Documentation"
+  tagline: "Cloud 9 Documentation"
   image:
     src: /logo-256x256.png
     alt: ImmyBot
