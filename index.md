@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "immy.bot"
   text: ""
-  tagline: "Cloud 9 Documentation"
+  tagline: "Documentation"
   image:
     src: /logo-256x256.png
     alt: ImmyBot
@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: What's New
       link: /releases
+    - theme: alt
+      text: Known Issues
+      link: /known-issues
 
 features:
   - title: FAQ

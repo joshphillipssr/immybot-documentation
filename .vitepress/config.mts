@@ -64,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ],
       },
       { text: "Frequently Asked Questions", link: "/FAQ" },
+      { text: "Known Issues", link: "/known-issues" },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/immense/immybot-documentation" }],
