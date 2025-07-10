@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
       {
         text: "Integrations",
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: "Build Your Own", link: "/build-your-own-integration" },
           { text: "ConnectSecure", link: "/connectsecure-integration-setup" },
@@ -57,13 +57,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
       {
         text: "Advanced",
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: "Scripting Guide", link: "/scripts" },
           { text: "Metascripts / Cloud Scripts", link: "/immy-commands" },
+          { text: "Metascript Variables", link: "/metascript-variables" },
         ],
       },
+      {
+        text: "Metascript Commands",
+        collapsed: true,
+        items: [
+          { text: "Metascript Functions Script", link: "/metascript-functions" },
+          { text: "Metascript Functions A-C", link: "/metascript-functions-a-c" },
+          { text: "Metascript Functions D-F", link: "/metascript-functions-d-f" },
+          { text: "Metascript Functions G-H", link: "/metascript-functions-g-h" },
+          { text: "Metascript Functions I-N", link: "/metascript-functions-i-n" },
+          { text: "Metascript Functions O-R", link: "/metascript-functions-o-r" },
+          { text: "Metascript Functions S-T", link: "/metascript-functions-s-t" },
+          { text: "Metascript Functions U-Z", link: "/metascript-functions-u-z" },
+        ],
+      },
+      {
+        text: "Miscellaneous",
+        collapsed: true,
+        items: [
       { text: "Frequently Asked Questions", link: "/FAQ" },
+      { text: "Known Issues", link: "/known-issues" },
+      { text: "Uncategorized / Notes", link: "/notes" },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/immense/immybot-documentation" }],

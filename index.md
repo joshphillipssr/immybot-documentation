@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: What's New
       link: /releases
+    - theme: alt
+      text: Known Issues
+      link: /known-issues
 
 features:
   - title: FAQ

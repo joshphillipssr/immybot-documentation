@@ -4,9 +4,11 @@ It is unlikely to receive further updates.
 
 Please migrate to the [New N-Central REST API Integration](/ncentral-integration-setup.html)
 :::
+
 # N-Central Integration
 
 Setting up this integration allows you to
+
 1. Import customers from N-Central
 2. Import computers from N-Central
 3. Manage all computers in N-Central without deploying the ImmyBot Agent
@@ -16,6 +18,7 @@ Setting up this integration allows you to
 ImmyBot currently requires the following role permissions to operate correctly:
 
 ### Devices
+
 - Devices View
   - All Devices -> Read Only
 - Direct Support
@@ -32,7 +35,6 @@ Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
 
 ![](https://github.com/immense/immybot-documentation/assets/31077619/0e76619f-31af-4869-a9ac-78a221614aa9)
-
 
 ## Create ImmyBot user in N-Central
 
@@ -81,4 +83,5 @@ When you map a customer from an RMM, the computers will undergo Identification
 ## Troubleshooting
 
 ### My customers are showing up but no computers
+
 Login to N-Central as the ImmyBot User and accept the EULA
