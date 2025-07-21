@@ -5,6 +5,7 @@
 These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
 
 ## User Computer Affinity
+
 ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
 
 For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
@@ -33,7 +34,6 @@ Also known as
 * "Winning" Deployments
 * Dealing with Snowflakes
 
-
 Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer.
 
 Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe Reader, and you would like that to be installed instead.
@@ -47,6 +47,7 @@ Then, create a Deployment that Installs Adobe Acrobat for their computers
 ![](./.vitepress/images/2021-03-01-08-51-38.png)
 
 ## [Target](#target)
+
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
 
 ImmyBot's ability to resolve [Targets](#target) to a group of computers is perhaps its most powerful feature.
@@ -60,9 +61,10 @@ This is particularly useful for security software, help desk portals, or anythin
 ### Offboarding
 
 Conversely, you could create Deployments that remove your stack for customers you are offboarding.
-- Create an "Offboarding" product in your PSA
-- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
-- Target all customers with the "Offboarding" product on their agreement
+
+* Create an "Offboarding" product in your PSA
+* Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
+* Target all customers with the "Offboarding" product on their agreement
 
 Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
 
@@ -118,13 +120,14 @@ flowchart TD
  PostInstallDetect --> |No| Non-Compliant
 ```
 
-A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Task](#task).
+A _[Maintenance Session](#maintenance-session)_ has one or more _[Maintenance Actions](#maintenance-action)_. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Task](#task).
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
 ![](./.vitepress/images/2021-02-23-06-14-05.png)
 
 ## Software
+
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
 
 My Software - Initially empty. When you upload your own software to ImmyBot, it goes into My Software
@@ -141,11 +144,12 @@ graph TD
     C --> F[Auto-Update Script]
 ```
 
-
 ### Pre-Requisities
+
 This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference detection.
 
 Common uses for Pre-Requisites include
+
 * Ensuring a piece of software is installed before installing another
   * C++ Redistributables before 3CX Client
   * Office is installed before an Outlook Add-in
@@ -157,9 +161,11 @@ Common uses for Pre-Requisites include
 ![](./.vitepress/images/2021-02-23-09-18-04.png)
 
 ### Ordering [Maintenance Actions](#maintenance-action)
+
 ![](./.vitepress/images/2021-02-23-09-15-27.png)
 
 ## Detection Method
+
 A Detection Method is required in order to know whether or not a piece of Software is installed on a machine.
 
 For Software, the detection method must returns the version of the software installed on the machine, if any.
@@ -167,6 +173,7 @@ For Software, the detection method must returns the version of the software inst
 For [Tasks](#task), the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
 ## Software Version
+
 ```mermaid
 graph TD
     C[Software Version] --> Install
@@ -177,6 +184,7 @@ graph TD
 ```
 
 ## Task
+
 A Task (aka Mainenance Task) is a catch-all for anything that isn't software.
 
 ```mermaid
@@ -198,33 +206,43 @@ graph TD
 ## Task Modes
 
 ### Enforce
+
 Runs the "test" script, if the test returns false, runs "set", then runs "test" again to verify.
 
 ### Audit
+
 Runs the "test" script which should return true or false. It can output whatever it wants, but the last output should be boolean.
 
 ### Monitor
+
 Runs the "get" script, which can return anything. Useful for collecting data like Bitlocker Keys, Quickbooks Licenses, or any other piece of information you are interested in.
 
 ## Scripts
+
 From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Tasks.
 
 ## Execution Context
+
 ### System
+
 Run as a service on the machine
 
 ### User
+
 Will attempt to run as the logged on user
 
 ### Metascript
+
 Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-ImmyCommand
 
 ### Cloud Script
+
 Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targetting "Tenants".
 
 ![](./.vitepress/images/2021-03-01-14-17-29.png)
 
 ## Schedules
+
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item.
 
 NOTE You must also have a Deployment for the Maintenance Item to set the desired state. Imagine a scenario where you need to ensure a single piece of software is up-to-date on all computers except for a CNC machine. Create 2 deployments, the first setting the desired state to Installed->Latest for all computers, then a second stating that the desired state is Ignored for the CNC machine. When you create the schedule, the software will be ignored for the CNC machine.
@@ -253,6 +271,7 @@ When a new machine is detected, it first goes to New Computers->Actively Identif
 ![](./.vitepress/images/2021-02-23-06-44-25.png)
 
 It uses the following script to collect the UUID from the machine:
+
 ```
 gwmi Win32_ComputerSystemProduct | select -expand UUID
 ```
@@ -297,5 +316,5 @@ Deployment [target visibility](#target-visibility) determines if it is enabled f
 
 ### Supported Integrations
 
-- [HaloPSA](/halo-integration-setup.md#technician-tools)
-- [CW Manage](/connectwise-manage-integration-setup)
+* [HaloPSA](/halo-integration-setup.md#technician-tools)
+* [CW Manage](/connectwise-manage-integration-setup)

@@ -1,0 +1,39 @@
+{
+  "index_name": "immydocs",
+  "start_urls": [
+    {
+      "url": "https://immydocs.c9cg.com/(.*?)/",
+      "variables": {
+        "page": "(.*?)"
+      },
+      "selectors_key": "default"
+    }
+  ],
+  "selectors": {
+    "default": {
+      "lvl0": {
+        "selector": ".VPDoc h1",
+        "global": true,
+        "default_value": "Documentation"
+      },
+      "lvl1": ".VPDoc h2",
+      "lvl2": ".VPDoc h3",
+      "lvl3": ".VPDoc h4",
+      "lvl4": ".VPDoc h5",
+      "lvl5": ".VPDoc h6",
+      "text": ".VPDoc p, .VPDoc li"
+    }
+  },
+  "selectors_exclude": [
+    "aside",
+    ".VPPageEdit"
+  ],
+  "js_render": true,
+  "js_wait_for": ".VPDoc h1",
+  "custom_settings": {
+    "chrome_args": [
+      "--no-sandbox",
+      "--disable-dev-shm-usage"
+    ]
+  }
+}

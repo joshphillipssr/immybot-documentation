@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ],
   description: "A documentation suite for all things ImmyBot",
   sitemap: {
-    hostname: "https://docs.immy.bot",
+    hostname: "https://immydocs.c9cg.com",
   },
   themeConfig: {
     logo: "/immybot-glasses.png",
@@ -93,9 +93,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     search: {
       provider: "algolia",
       options: {
-        apiKey: "e84eee7e1fa61571b3814adfcb2a70f2",
-        indexName: "immy",
-        appId: "SU6GB55GXI",
+        apiKey: "475b0377be7f8e9fc4b328fefca092a8",
+        indexName: "immydocs",
+        appId: "7GCVYO7ST6",
       },
     },
   },
