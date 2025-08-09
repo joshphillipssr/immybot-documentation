@@ -1,103 +1,188 @@
-import { defineConfig } from "vitepress";
+import { defineConfig } from 'vitepress';
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
-  title: "immy.bot",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-    [
-      "script",
-      {},
-      `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    title: "ImmyBot Documentation",
+    head: [
+        ['meta', { property: 'og:image', content: '/OpenGraph-ImmyBotDefault01.png' }],
+        ['meta', { property: 'og:title', content: 'ImmyBot | Technical Documentation' }],
+        ['meta', { property: 'og:description', content: 'Dive into getting started guides, recommended deployment workflows, user‑role breakdowns, scripting best practices, and deep dives into integrations and custom metascripts. Get everything you need to streamline your ImmyBot automation toolbox.' }],
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        [
+            'script',
+            {},
+            `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PF34XF88');`,
+})(window,document,'script','dataLayer','GTM-PF34XF88');`
+        ]
     ],
-  ],
-  description: "A documentation suite for all things ImmyBot",
-  sitemap: {
-    hostname: "https://immydocs.c9cg.com",
-  },
-  themeConfig: {
-    logo: "/immybot-glasses.png",
-    // https://vitepress.dev/reference/default-theme-config
-    sidebar: [
-      {
-        text: "Introduction",
-        collapsed: false,
-        items: [
-          { text: "Getting Started", link: "/getting-started" },
-          { text: "What's New", link: "/releases" },
-          { text: "Add Users", link: "./add-users" },
-          { text: "Onboarding", link: "./onboarding" },
-          { text: "Recommended Deployments", link: "./recommended-deployments" },
-          { text: "Terminology", link: "./terminology" },
-          { text: "Troubleshooting", link: "./troubleshooting" },
-          { text: "User Roles", link: "./user-roles" },
-          { text: "Windows Sandbox", link: "./windows-sandbox" },
-        ],
-      },
-      {
-        text: "Integrations",
-        collapsed: true,
-        items: [
-          { text: "Build Your Own", link: "/build-your-own-integration" },
-          { text: "ConnectSecure", link: "/connectsecure-integration-setup" },
-          { text: "ConnectWise Automate", link: "/connectwise-automate-integration-setup" },
-          { text: "ConnectWise Control", link: "/connectwise-control-integration-setup" },
-          { text: "ConnectWise Manage", link: "/connectwise-manage-integration-setup" },
-          { text: "N-Central", link: "/ncentral-integration-setup" },
-          { text: "NinjaRMM", link: "/ninjarmm-integration-setup" },
-          { text: "HaloPSA", link: "/halo-integration-setup" },
-          { text: "Azure", link: "/azure-graph-permissions-setup" },
-          { text: "Support Override", link: "/support-override-integration-setup" },
-        ],
-      },
-      {
-        text: "Advanced",
-        collapsed: true,
-        items: [
-          { text: "Scripting Guide", link: "/scripts" },
-          { text: "Metascripts / Cloud Scripts", link: "/immy-commands" },
-          { text: "Metascript Variables", link: "/metascript-variables" },
-        ],
-      },
-      {
-        text: "Metascript Commands",
-        collapsed: true,
-        items: [
-          { text: "Metascript Functions Script", link: "/metascript-functions" },
-          { text: "Metascript Functions A-C", link: "/metascript-functions-a-c" },
-          { text: "Metascript Functions D-F", link: "/metascript-functions-d-f" },
-          { text: "Metascript Functions G-H", link: "/metascript-functions-g-h" },
-          { text: "Metascript Functions I-N", link: "/metascript-functions-i-n" },
-          { text: "Metascript Functions O-R", link: "/metascript-functions-o-r" },
-          { text: "Metascript Functions S-T", link: "/metascript-functions-s-t" },
-          { text: "Metascript Functions U-Z", link: "/metascript-functions-u-z" },
-        ],
-      },
-      {
-        text: "Miscellaneous",
-        collapsed: true,
-        items: [
-      { text: "Frequently Asked Questions", link: "/FAQ" },
-      { text: "Known Issues", link: "/known-issues" },
-      { text: "Uncategorized / Notes", link: "/notes" },
-        ],
-      },
-    ],
-
-    socialLinks: [{ icon: "github", link: "https://github.com/immense/immybot-documentation" }],
-    search: {
-      provider: "algolia",
-      options: {
-        apiKey: "475b0377be7f8e9fc4b328fefca092a8",
-        indexName: "immydocs",
-        appId: "7GCVYO7ST6",
-      },
+    description: "Cloud 9 ImmyBot Documentation",
+    sitemap: {
+        hostname: 'https://immy.docs.c9cg.com'
     },
-  },
-  ignoreDeadLinks: true,
+    themeConfig: {
+        logo: '/immybot-glasses.png',
+        // https://vitepress.dev/reference/default-theme-config
+        sidebar: [
+            {
+                text: 'Getting Started',
+                collapsed: false,
+                items: [
+                    { text: 'Introduction to ImmyBot', link: '/Documentation/GettingStarted/introduction' },
+                    { text: 'Quick Start Guide', link: '/Documentation/GettingStarted/quick-start-guide' },
+                    { text: 'Core Concepts', link: '/Documentation/GettingStarted/core-concepts' },
+                    { text: 'Common Workflows', link: '/Documentation/GettingStarted/common-workflows' },
+                    { text: 'System Requirements', link: '/Documentation/GettingStarted/system-requirements' },
+                    { text: 'Instance Best Practices', link: '/Documentation/GettingStarted/instance-best-practices' },
+                    { text: 'Recommended Deployments', link: '/Documentation/GettingStarted/recommended-deployments' },
+
+                ],
+            },
+            {
+                text: 'Core Features',
+                collapsed: false,
+                items: [
+                    { text: 'Tenants', link: '/Documentation/CoreFeatures/tenants-organizations' },
+                    { text: 'Computers', link: '/Documentation/CoreFeatures/computers-inventory' },
+                    { text: 'Software & Tasks Library', link: '/Documentation/CoreFeatures/software-library' },
+                    { text: 'Deployments', link: '/Documentation/CoreFeatures/deployments' },
+                    { text: 'Maintenance Sessions', link: '/Documentation/CoreFeatures/maintenance-sessions' },
+                    { text: 'Targets & Targeting', link: '/Documentation/CoreFeatures/targets-targeting' },
+                    { text: 'Script Editor', link: '/Documentation/CoreFeatures/script-editor' },
+                ],
+            },
+            {
+                text: 'How-To Guides',
+                collapsed: true,
+                items: [
+                    { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
+                    { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
+                    { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
+                    { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
+                    { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
+                    { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
+                    { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
+                    { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
+                    { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
+                    { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
+
+                     {
+                        text: 'Instance Changes',
+                        collapsed: true,
+                        items: [
+                            { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
+                            { text: 'Moving the original MSP Tenant to another MSP Tenant', link: '/Documentation/HowToGuides/InstanceChanges/move-the-original-msp-tenant-to-a-new-tenant' },
+
+                        ]
+                    },
+                ],
+            },
+            {
+                text: 'Integrations',
+                collapsed: true,
+                items: [
+                    { text: 'Integration Overview', link: '/Documentation/Integrations/integration-overview' },
+                    { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
+                    {
+                        text: 'RMM Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'ConnectWise Automate', link: '/Documentation/Integrations/connectwise-automate-integration-setup' },
+                            { text: 'ConnectWise Control', link: '/Documentation/Integrations/connectwise-control-integration-setup' },
+                            { text: 'N-Central', link: '/Documentation/Integrations/ncentral-integration-setup' },
+                            { text: 'NinjaRMM', link: '/Documentation/Integrations/ninjarmm-integration-setup' },
+                        ]
+                    },
+                    {
+                        text: 'PSA Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'ConnectWise Manage', link: '/Documentation/Integrations/connectwise-manage-integration-setup' },
+                            { text: 'HaloPSA', link: '/Documentation/Integrations/halo-integration-setup' },
+                        ]
+                    },
+                    {
+                        text: 'Other Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'Azure', link: '/Documentation/Integrations/azure-graph-permissions-setup' },
+                            { text: 'ConnectSecure', link: '/Documentation/Integrations/connectsecure-integration-setup' },
+                             { text: "Support Override", link: '/Documentation/Integrations/support-override-integration-setup' },
+                        ]
+                    },
+                ],
+            },
+            {
+                text: 'Administration',
+                collapsed: true,
+                items: [
+                    { text: 'User Roles and Security', link: '/Documentation/Administration/user-roles' },
+                    { text: 'RBAC (coming soon)', link: '/Documentation/Administration/rbac' },
+                    { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
+                    { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
+                    { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
+                ],
+            },
+            {
+                text: 'Advanced Topics',
+                collapsed: true,
+                items: [
+                    { text: 'Scripting Guide', link: '/Documentation/AdvancedTopics/scripts' },
+                    { text: 'Metascripts / Cloud Scripts', link: '/Documentation/AdvancedTopics/immy-commands' },
+                    { text: 'Deployment Resolution', link: '/Documentation/AdvancedTopics/deployment-resolution' },
+                ],
+            },
+            {
+                text: 'Troubleshooting',
+                collapsed: true,
+                items: [
+                    { text: 'Common Issues', link: '/Documentation/Troubleshooting/common-issues' },
+                    { text: 'Agent Troubleshooting and Security Exclusions', link: '/Documentation/Troubleshooting/troubleshooting' },
+                ],
+            },
+            {
+                text: 'Reference',
+                collapsed: true,
+                items: [
+                    { text: 'Terminology', link: '/Documentation/Reference/terminology' },
+                    { text: 'API Documentation', link: '/Documentation/Reference/api-documentation' },
+                    { text: 'Release Notes',  collapsed: true,
+                        items: [
+                            { text: 'Current Releases', link: '/Documentation/Reference/releases' },
+                            { text: 'Archived Releases', link: '/Documentation/Reference/releases-archived',
+                                collapsed: true,
+                                items: [
+                                    { text: '2024', link: '/Documentation/Reference/releases-2024' },
+                                    { text: '2023', link: '/Documentation/Reference/releases-2023',  },
+                                    { text: '2022', link: '/Documentation/Reference/releases-2022' },
+                                    { text: '2021', link: '/Documentation/Reference/releases-2021',  },
+                                    { text: '2020', link: '/Documentation/Reference/releases-2020',  },
+                            ] },
+                        ]
+                    },
+                    { text: 'Known issues', link: '/Documentation/Reference/known-issues' },
+                ],
+            },
+            { text: 'Frequently Asked Questions', link: '/Documentation/FAQ' },
+
+        ],
+
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/immense/immybot-documentation' }
+        ],
+        search: {
+            provider: 'algolia',
+            options: {
+                apiKey: "e84eee7e1fa61571b3814adfcb2a70f2",
+                indexName: "immy",
+                appId: 'SU6GB55GXI',
+            }
+        }
+    },
+    ignoreDeadLinks: true
+
+
 });
