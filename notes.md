@@ -23,16 +23,6 @@ Need to create a page outlining how to update this documentation site.
 
 ## Execution Contexts
 
-TICKET NOTE: Definitive Architectural Model for ImmyBot Automation
-Title: Context Note: The "Three Worlds" Execution Model - A Definitive Guide
-
-Description:
-This note synthesizes the critical architectural discoveries made during the troubleshooting of Invoke-ImmyCommand and script modularity. It establishes the "ground truth" for the ImmyBot execution model, which must be adhered to for all future development on this project to avoid context-related failures.
-
-The core discovery is that ImmyBot operates on a strict "Three Worlds" model, with three distinct, isolated execution contexts. Understanding the purpose of each context and the formal rules for communication between them is paramount.
-
-1. The Three Execution Contexts
-
 Cloud Script Context (The "API World")
 
 Environment: ConstrainedLanguage PowerShell Core, running in the ImmyBot cloud.
@@ -70,3 +60,4 @@ The Workflow: The Metascript orchestrates the entire process:
 a. It calls an integration cmdlet to get data from the Cloud Script (e.g., $token = Get-IntegrationAgentUninstallToken).
 b. It then calls Invoke-ImmyCommand, passing the retrieved data (e.g., $using:token) to the System context to perform the work.
 By adhering strictly to this model, we ensure that each piece of code lives in the correct context with the correct capabilities, preventing future "context collision" errors.
+
